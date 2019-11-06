@@ -1,0 +1,51 @@
+<html><head><style>
+      
+#container {
+overflow: scroll;
+	height: 400px;
+width: 400px;
+background-color:green;
+  scroll-snap-type: y mandatory;
+
+}
+#area1 {
+	background-color: blue;
+  position: absolute;
+  top: 2000px;
+  left:0px;
+  width: 100px;
+  height: 100px;
+	scroll-snap-align: start;
+}   
+
+#area2 {
+	background-color: green;
+  position: absolute;
+  top: 5000px;
+  left:0px;
+  width: 100px;
+  height: 100px;
+	scroll-snap-align: start;
+}
+
+.space {
+height: 10000px;
+width: 400px;
+}</style>
+<script>
+var did_scroll = false;
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('scroll', () => {
+      if (document.scrollingElement.scrollTop > 1950 && !did_scroll) {
+	      document.scrollingElement.scrollTo(0, 5000);
+	      did_scroll = true;
+      }
+  });
+});
+</script>
+	</head><body>
+    <div id="container"><div class="space"></div><div id="area1"><h2>1</h2></div>
+  	<div id="area2"><h2>2</h2></div>
+    </div>
+
+</body></html>
